@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy Node.js app to Azure Web App - pawn-shop
+name: Build and Deploy to Azure
 
 on:
   push:
@@ -21,11 +18,45 @@ jobs:
         with:
           node-version: '16.x'
 
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+      - name: Install Dependencies for client application.
+        working-directory: ./client
+        run: npm install
+
+      - name: Run Client Tests
+        working-directory: ./client
+        run: npm run test
+
+      - name: Build client application.
+        working-directory: ./client
+        run: npm run build
+
+      - name: Remove .github folder
+        uses: JesseTG/rm@v1.0.2
+        with:
+          path: ./.github
+
+      - name: Remove client folder
+        uses: JesseTG/rm@v1.0.2
+        with:
+          path: ./client
+
+      - name: Remove .idea folder
+        uses: JesseTG/rm@v1.0.2
+        with:
+          path: ./.idea
+
+      - name: Remove .gitignore
+        uses: JesseTG/rm@v1.0.2
+        with:
+          path: ./.gitignore
+
+      - name: Remove README.md
+        uses: JesseTG/rm@v1.0.2
+        with:
+          path: ./README.md
+
+      - name: Install server dependencies
+        run: npm install
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
