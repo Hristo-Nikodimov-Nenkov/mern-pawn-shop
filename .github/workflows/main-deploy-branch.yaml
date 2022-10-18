@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: pawn-shop-client
-          path: ./client/
+          path: ./client/build
 
   prepare-deploy:
     runs-on: ubuntu-latest
