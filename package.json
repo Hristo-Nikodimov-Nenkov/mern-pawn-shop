@@ -4,6 +4,9 @@
   "description": "Template project using MongoDB, Express, React & Node ( MERN ) technology stack.",
   "type": "module",
   "main": "app.js",
+  "engines": {
+    "node": ">=19.0.0"
+  },
   "scripts": {
     "start": "node --loader ./loader.js app.js",
     "dev": "nodemon --loader ./loader.js app.js --ignore client"
