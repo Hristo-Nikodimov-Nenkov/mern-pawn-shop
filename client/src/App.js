@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import {Account, Home, NotFound} from "./components/pages";
+import {UserContextProvider} from "./contexts";
+import {Footer, Header} from "./components/common";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return <UserContextProvider>
+        <Header/>
+        <main id="content">
+            <Routes>
+                <Route index element={<Home/>}/>
+                <Route path="/account/*" element={<Account/>}/>
+
+                <Route path="*" element={<NotFound/>}/>
+            </Routes>
+        </main>
+        <Footer/>
+    </UserContextProvider>
 }
 
 export default App;
