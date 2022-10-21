@@ -49,32 +49,32 @@ jobs:
           path: ./public
 
       - name: Remove .github folder
-        uses: JesseTG/rm@main
+        uses: JesseTG/rm@v1.0.2
         with:
           path: ./.github
 
       - name: Remove client folder
-        uses: JesseTG/rm@main
+        uses: JesseTG/rm@v1.0.2
         with:
           path: ./client
 
       - name: Remove .idea folder
-        uses: JesseTG/rm@main
+        uses: JesseTG/rm@v1.0.2
         with:
           path: ./.idea
 
       - name: Remove .vscode folder
-        uses: JesseTG/rm@main
+        uses: JesseTG/rm@v1.0.2
         with:
           path: ./.vscode
 
       - name: Remove .gitignore
-        uses: JesseTG/rm@main
+        uses: JesseTG/rm@v1.0.2
         with:
           path: ./.gitignore
 
       - name: Remove README.md
-        uses: JesseTG/rm@main
+        uses: JesseTG/rm@v1.0.2
         with:
           path: ./README.md
 
