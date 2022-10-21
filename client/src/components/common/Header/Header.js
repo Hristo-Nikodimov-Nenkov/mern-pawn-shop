@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = () => {
     const navLinks = [
         {
-            url: "/account/login",
+            url: "/account/signIn",
             text: "SignIn"
         }, {
             url: "/account/register",
