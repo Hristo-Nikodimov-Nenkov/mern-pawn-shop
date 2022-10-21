@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
 
       - name: Set up Node.js version
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@main
         with:
           node-version: '16.x'
 
@@ -30,7 +30,7 @@ jobs:
         run: npm run build
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@main
         with:
           name: pawn-shop-client
           path: ./client/build
@@ -40,41 +40,41 @@ jobs:
     needs: build-client
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@main
 
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@main
         with:
           name: pawn-shop-client
           path: ./public
 
       - name: Remove .github folder
-        uses: JesseTG/rm@v1.0.2
+        uses: JesseTG/rm@main
         with:
           path: ./.github
 
       - name: Remove client folder
-        uses: JesseTG/rm@v1.0.2
+        uses: JesseTG/rm@main
         with:
           path: ./client
 
       - name: Remove .idea folder
-        uses: JesseTG/rm@v1.0.2
+        uses: JesseTG/rm@main
         with:
           path: ./.idea
 
       - name: Remove .vscode folder
-        uses: JesseTG/rm@v1.0.2
+        uses: JesseTG/rm@main
         with:
           path: ./.vscode
 
       - name: Remove .gitignore
-        uses: JesseTG/rm@v1.0.2
+        uses: JesseTG/rm@main
         with:
           path: ./.gitignore
 
       - name: Remove README.md
-        uses: JesseTG/rm@v1.0.2
+        uses: JesseTG/rm@main
         with:
           path: ./README.md
 
