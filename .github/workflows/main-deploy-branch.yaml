@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node.js version
         uses: actions/setup-node@main
         with:
-          node-version: '16.x'
+          node-version: '18.x'
 
       - name: Install Dependencies for client application.
         working-directory: ./client
