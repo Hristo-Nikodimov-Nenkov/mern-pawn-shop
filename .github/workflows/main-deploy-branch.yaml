@@ -34,6 +34,7 @@ jobs:
         with:
           name: pawn-shop-client
           path: ./client/build
+          retention-days: 1
 
   prepare-deploy:
     runs-on: ubuntu-latest
@@ -83,11 +84,6 @@ jobs:
         with:
           name: pawn-shop-server
           path: .
-
-      - name: Remove redundant artifact pawn-shop-client
-        uses: actions/remove-artifact@main
-        with:
-          name: pawn-shop-client
 
       - name: Configure git
         run: |
