@@ -78,6 +78,12 @@ jobs:
         with:
           path: ./README.md
 
+      - name: Upload artifact for deployment job
+        uses: actions/upload-artifact@main
+        with:
+          name: pawn-shop-server
+          path: .
+
       - name: Configure git
         run: |
           git config user.email ${{secrets.EMAIL}}
