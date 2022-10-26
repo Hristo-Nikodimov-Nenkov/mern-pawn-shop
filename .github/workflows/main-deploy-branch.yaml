@@ -84,6 +84,11 @@ jobs:
           name: pawn-shop-server
           path: .
 
+      - name: Remove redundant artifact pawn-shop-client
+        uses: actions/remove-artifact@main
+        with:
+          name: pawn-shop-client
+
       - name: Configure git
         run: |
           git config user.email ${{secrets.EMAIL}}
